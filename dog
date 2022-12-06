@@ -1,0 +1,108 @@
+import pygame
+from pygame.draw import *
+import sys
+
+pygame.init()
+
+"""this is one dog"""
+FPS = 60
+screen = pygame.display.set_mode((500, 700))
+screen.fill((0,200,100)) # трава -- screen.fill((0, 200, 100))
+
+x1 = 0; y1 = 100
+x2 = 500; y2 = 450
+N = 12
+color1 = (0, 0, 0) # полоски на заборе
+color2 = (200,170,0) #забор
+color3 = ((100,190,205))
+eye = (255, 255, 255)# глаза
+rect(screen,color2,(x1,y1,x2 - x1,y2 - y1))
+rect(screen,color3,(0, 0, x2, y1))
+
+rect(screen, color1, (x1, y1, x2 - x1, y2 - y1), 1)
+h = (x2 - x1) // (N + 1)
+x = x1 + h
+for i in range(N):
+    line(screen, color1, (x, y1), (x, y2))
+    x += h
+
+aaline_color = (0, 0, 0)
+polygon(screen, (255, 255, 0), [(420, 490), (450, 460), (400, 380), (370, 410)])
+polygon(screen, (255, 255, 0), [(330, 470), (330, 560), (420, 600), (420, 490)])
+polygon(screen, (255, 255, 0), [(330, 470), (420, 490), (370, 410)])
+polygon(screen, (255, 255, 0), [(420, 600), (450, 550), (450, 460), (420, 490)])
+ellipse(screen, (0, 0, 0), (350, 500, 50, 60))
+aaline(screen, aaline_color, (330, 470), (420, 490), 4)
+aaline(screen, aaline_color, (420, 490), (450, 460), 4)
+aaline(screen, aaline_color, (450, 460), (400, 380), 4)
+aaline(screen, aaline_color, (400, 380), (370, 410), 4)
+aaline(screen, aaline_color, (370, 410), (420, 490), 4)
+aaline(screen, aaline_color, (370, 410), (330, 470), 4)
+aaline(screen, aaline_color, (330, 470), (330, 560), 4)
+aaline(screen, aaline_color, (420, 490), (420, 600), 4)
+aaline(screen, aaline_color, (330, 560), (420, 600), 4)
+aaline(screen, aaline_color, (450, 460), (450, 550), 4)
+aaline(screen, aaline_color, (420, 600), (450, 550), 4)
+ellipse(screen, (0, 0, 0), (340, 550, 20, 7), 1)
+ellipse(screen, (0, 0, 0), (317, 555, 20, 10), 1)
+ellipse(screen, (127, 127, 127), (335, 550, 10, 15))
+ellipse(screen, (0, 0, 0), (335, 550, 10, 15), 1)
+ellipse(screen, (0, 0, 0), (312, 555, 9, 16), 1)
+ellipse(screen, (0, 0, 0), (302, 563, 15, 8), 1)
+circle(screen, (0, 0, 0), (299, 567), 7, 1)
+ellipse(screen, (0, 0, 0), (278, 567, 20, 7), 1)
+ellipse(screen, (0, 0, 0), (276, 569, 10, 15), 1)
+ellipse(screen, (0, 0, 0), (260, 574, 20, 10), 1)
+circle(screen, (0, 0, 0), (260, 580), 7, 1)
+ellipse(screen, (0, 0, 0), (236, 577, 23, 12), 1)
+
+#собака
+dog_color = (160, 82, 45)
+ellipse(screen, dog_color, (58, 570, 100, 50))
+ellipse(screen, dog_color, (130, 555, 72, 45))
+ellipse(screen, dog_color, (170, 565, 32, 45))
+ellipse(screen, dog_color, (182, 589, 15, 40))
+ellipse(screen, dog_color, (170, 625, 22, 9))
+ellipse(screen, dog_color, (135, 552, 32, 45))
+ellipse(screen, dog_color, (150, 575, 15, 45))
+ellipse(screen, dog_color, (140, 617, 22, 9))
+ellipse(screen, dog_color, (110, 600, 30, 60))
+ellipse(screen, dog_color, (100, 655, 30, 13))
+ellipse(screen, dog_color, (52, 585, 30, 60))
+ellipse(screen, dog_color, (42, 640, 30, 13))
+#head
+rect(screen, dog_color, (65, 540, 65, 65))
+ellipse(screen, eye, (77, 570, 14, 5))
+ellipse(screen, eye, (104, 570, 14, 5))
+circle(screen, (0, 0, 0), (84, 573), 3)
+circle(screen, (0, 0, 0), (111, 573), 3)
+ellipse(screen, (0, 0, 0), (77, 588, 40, 25), 1)
+rect(screen, dog_color, (65, 597, 65, 20))
+aaline(screen, aaline_color, (65, 540), (65, 605), 8)
+aaline(screen, aaline_color, (65, 605), (130, 605), 8)
+aaline(screen, aaline_color, (130, 605), (130, 540), 8)
+aaline(screen, aaline_color, (130, 540), (65, 540), 8)
+ellipse(screen, dog_color, (120, 540, 20, 30))
+ellipse(screen, aaline_color, (120, 540, 20, 30), 1)
+ellipse(screen, dog_color, (55, 540, 20, 30))
+ellipse(screen, aaline_color, (55, 540, 20, 30), 1)
+polygon(screen, (255, 255, 255), [(105, 581), (110, 591), (100, 588)])
+aaline(screen, aaline_color, (105, 581), (110, 591))
+aaline(screen, aaline_color, (105, 581), (100, 588))
+aaline(screen, aaline_color, (110, 591), (100, 588))
+polygon(screen, (255, 255, 255), [(82, 591), (87, 581), (92, 588)])
+aaline(screen, aaline_color, (82, 591), (87, 581))
+aaline(screen, aaline_color, (87, 581), (92, 588))
+aaline(screen, aaline_color, (92, 588), (82, 591))
+
+pygame.display.update()
+clock = pygame.time.Clock()
+finished = False
+
+while not finished:
+    clock.tick(FPS)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            finished = True
+
+pygame.quit()
